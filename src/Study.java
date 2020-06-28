@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.TreeSet;
@@ -15,6 +16,11 @@ public class Study {
 
 	public static void main(String[] args) {
 		int[] ary = { 1, 1, 3, 2, 2, 3, 6, 0, 6, 7, 7, 19, 19, 5, 5 };
+		qsortArray(ary, 0, ary.length-1);
+
+		for(int i =0; i<ary.length; i++) {
+			System.out.println(ary[i]);
+		}
 		String defStr = "i love you";
 		String defStr2 = "asdfaascvffeesfgfff";
 		// find1From2(ary);
@@ -48,6 +54,16 @@ public class Study {
 		System.out.println("replaceReuslt:" + pars.toString());
 		System.out.println("-------->|" + (-1 | 0));
 		System.out.println(s);
+
+
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		list.add(127);
+		list.add(2);
+		list.add(3);
+//		list.remove(0);
+		list.remove(Integer.valueOf(127));
+		System.out.println("---reuslt------------------>"+list.get(0));
+
 	}
 
 	/**
@@ -237,7 +253,7 @@ public class Study {
 	 * 的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，直到全部待排序的数据 元素排完。 选择排序是不稳定的排序方法 （比如序列[5，
 	 * 5，3]第一次就将第一个[5]与[3] 交换，导致第一个5挪动到第二个5后面）。
 	 * 
-	 * @param intArr
+	 * @param ary
 	 *            被排序的数组
 	 */
 	public static void selectionSort(int[] ary) {
@@ -253,6 +269,34 @@ public class Study {
 			ary[i] = ary[lowIndex];
 			ary[lowIndex] = temp;
 		}
+	}
+
+	/**
+	 * 快速排序
+	 * 更多信息可参考百度百科
+	 */
+	public static int[] qsortArray(int arr[], int start, int end) {
+		int pivot = arr[start];
+		int i = start;
+		int j = end;
+		while (i < j) {
+			while ((i < j) && (arr[j] > pivot)) {
+				j--;
+			}
+			while ((i < j) && (arr[i] < pivot)) {
+				i++;
+			}
+			if ((arr[i] == arr[j]) && (i < j)) {
+				i++;
+			} else {
+				int temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+		}
+		if (i - 1 > start) arr = qsortArray(arr, start, i - 1);
+		if (j + 1 < end) arr = qsortArray(arr, j + 1, end);
+		return (arr);
 	}
 
 	/**
