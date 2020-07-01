@@ -1,6 +1,4 @@
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.TreeSet;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -9,68 +7,29 @@ public class Study {
 	private Study() {
 	}
 
-	private static final LinkedList<String> LOTS_OF_STRINGS = new LinkedList<>();
-
-	void t(final String a) {
-	}
-
 	public static void main(String[] args) {
-		int[] ary = { 1, 1, 3, 2, 2, 3, 6, 0, 6, 7, 7, 19, 19, 5, 5 };
-		qsortArray(ary, 0, ary.length-1);
-
-		for(int i =0; i<ary.length; i++) {
-			System.out.println(ary[i]);
-		}
-		String defStr = "i love you";
-		String defStr2 = "asdfaascvffeesfgfff";
-		// find1From2(ary);
-		// for(int i = 0; i<10; i++){
-		// if(i == 6){
-		// return;
-		// }
-		//
-		// System.out.println(i);
-		// }
-
-		String s1 = "{\"point\":[{\"longitude\":\"40.055826\",\"latitude\":\"116.307917\"},{\"longitude\":\"40.055916\",\"latitude\":\"116.308455\"},{\"longitude\":\"40.055967\",\"latitude\":\"116.308549\"},{\"longitude\":\"40.056014\",\"latitude\":\"116.308574\"},{\"longitude\":\"40.056440\",\"latitude\":\"116.308485\"},{\"longitude\":\"40.056816\",\"latitude\":\"116.308352\"},{\"longitude\":\"40.057997\",\"latitude\":\"116.307725\"},{\"longitude\":\"40.058022\",\"latitude\":\"116.307693\"},{\"longitude\":\"40.058029\",\"latitude\":\"116.307590\"},{\"longitude\":\"40.057913\",\"latitude\":\"116.307119\"},{\"longitude\":\"40.057850\",\"latitude\":\"116.306945\"},{\"longitude\":\"40.057756\",\"latitude\":\"116.306915\"},{\"longitude\":\"40.057225\",\"latitude\":\"116.307164\"},{\"longitude\":\"40.056134\",\"latitude\":\"116.307546\"},{\"longitude\":\"40.055879\",\"latitude\":\"116.307636\"},{\"longitude\":\"40.055826\",\"latitude\":\"116.307697\"}]}";
-		String s2 = "{\"point\":[{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421}]}";
-
-		// bublleSort(ary);
-		// selectionSort(ary);
-		// for (int i = 0; i < ary.length; i++) {
-		// System.out.println(ary[i]);
-		// }
-
-		// revertChar(defStr2);
-
-		// revertWord(defValue);
-		// optimizaStr2(defStr2);
-		StringBuilder pars = new StringBuilder();
-		pars.append("key:value,key:value,");
-		String s = pars.toString();
-		System.out.println(s.length());
-		int lastIndex = pars.lastIndexOf(",");
-		System.out.println("lastIndex:" + lastIndex);
-		System.out.println("replaceReuslt:" + pars.toString());
-		System.out.println("-------->|" + (-1 | 0));
-		System.out.println(s);
-
-
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		list.add(127);
-		list.add(2);
-		list.add(3);
-//		list.remove(0);
-		list.remove(Integer.valueOf(127));
-		System.out.println("---reuslt------------------>"+list.get(0));
 
 	}
 
 	/**
+	 * 斐波那契数，例：1 1 2 3 5 8 13 21
+	 *
+	 * 测试：
+	 * int num = feiBo(5);
+	 * System.out.println("---reuslt-------->"+num);
+	 *
+	 * @param num n
+	 * @return 第N个斐波那契数
+	 */
+	public static int feiBo(int num) {
+		if(num == 1) return 1;
+		if(num == 2) return 2;
+
+		return feiBo(num-1) + feiBo(num-2);
+	}
+
+	/**
 	 * 递归测试
-	 * 
-	 * @param par
-	 * @return
 	 */
 	static int t(int par) {
 		if (par == 1) {
@@ -93,8 +52,7 @@ public class Study {
 	}
 
 	/**
-	 *      * 数组a中只有一个数出现一次，其他数都出现了2次，找出这个数字      * @param a      * @return
-	 *      
+     * 数组a中只有一个数出现一次，其他数都出现了2次，找出这个数字
 	 */
 	public static int find1From2(int[] a) {
 		int len = a.length, res = 0;
@@ -133,8 +91,8 @@ public class Study {
 	/**
 	 * 字符去重 例：优化前 asdfasdf 优化后 asdf
 	 */
-	public static void optimizaStr2(String str) {
-		TreeSet<String> set = new TreeSet<String>();
+	public static void optimizeStr2(String str) {
+		TreeSet<String> set = new TreeSet<>();
 		for (int i = 0; i < str.length(); i++) {
 			set.add(str.charAt(i) + ",");
 		}
@@ -234,13 +192,12 @@ public class Study {
 	 *            过前面的两两交换把两个相邻起来，这时候也不会交换，所以相同元素的前后顺序并没有改变，所以冒泡排序是一种 稳定排序算法。
 	 */
 	public static void bublleSort(int[] ary) {
-		int temp = 0;
 		for (int i = 0; i < ary.length; i++) {
 			for (int j = 1; j < ary.length; j++) {
 				if (ary[j - 1] > ary[j]) {
-					temp = ary[j - 1];
-					ary[j - 1] = ary[j];
-					ary[j] = temp;
+					ary[j - 1] ^= ary[j];
+					ary[j] ^= ary[j - 1];
+					ary[j - 1] ^= ary[j];
 				}
 			}
 		}
@@ -253,8 +210,7 @@ public class Study {
 	 * 的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，直到全部待排序的数据 元素排完。 选择排序是不稳定的排序方法 （比如序列[5，
 	 * 5，3]第一次就将第一个[5]与[3] 交换，导致第一个5挪动到第二个5后面）。
 	 * 
-	 * @param ary
-	 *            被排序的数组
+	 * @param ary 被排序的数组
 	 */
 	public static void selectionSort(int[] ary) {
 		int temp = 0;
@@ -272,38 +228,44 @@ public class Study {
 	}
 
 	/**
+	 * int[] ary = {10, 2, 923, 123, 9};
+	 * quickSortArray(ary, 0, ary.length-1);
+	 * for (int i = 0; i < ary.length; i++) {
+	 * 	System.out.println(ary[i]);
+	 * }
+	 *
 	 * 快速排序
 	 * 更多信息可参考百度百科
 	 */
-	public static int[] qsortArray(int arr[], int start, int end) {
-		int pivot = arr[start];
+	public static int[] quickSortArray(int[] array, int start, int end) {
+		if(array==null || array.length <= 1) {
+			return array;
+		}
+		int pivot = array[start];
 		int i = start;
 		int j = end;
 		while (i < j) {
-			while ((i < j) && (arr[j] > pivot)) {
+			while ((array[j] > pivot)) {
 				j--;
 			}
-			while ((i < j) && (arr[i] < pivot)) {
+			while ((array[i] < pivot)) {
 				i++;
 			}
-			if ((arr[i] == arr[j]) && (i < j)) {
+			if ((array[i] == array[j]) && (i < j)) {
 				i++;
 			} else {
-				int temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
+				int temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
 			}
 		}
-		if (i - 1 > start) arr = qsortArray(arr, start, i - 1);
-		if (j + 1 < end) arr = qsortArray(arr, j + 1, end);
-		return (arr);
+		if (i - 1 > start) array = quickSortArray(array, start, i - 1);
+		if (j + 1 < end) array = quickSortArray(array, j + 1, end);
+		return array;
 	}
 
 	/**
 	 * 查找单独存在的整数 亦或运算:二进制运算相同为0不同为1 例：1,1,2,3,2 结果为3
-	 * 
-	 * @param ary
-	 * @return
 	 */
 	public static int getOddNum(int[] ary) {
 		int temp = 0;
@@ -315,9 +277,6 @@ public class Study {
 
 	/**
 	 * 查找数组中缺失的数字。例：1,2,3,5 结果4 此算法空间复杂度比较高
-	 * 
-	 * @param ary
-	 * @return
 	 */
 	public static int searchNum2(int[] ary) {
 		int temp = 0;
@@ -345,9 +304,6 @@ public class Study {
 
 	/**
 	 * 查找数组中缺失的数字。例：1,2,3,5 结果为4 此算法时间控件复杂度最优
-	 * 
-	 * @param ary
-	 * @return
 	 */
 	public static int searchNum1(int[] ary) {
 		int sum = 0;
