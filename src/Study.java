@@ -9,61 +9,25 @@ public class Study {
 	private Study() {
 	}
 
-	private static final LinkedList<String> LOTS_OF_STRINGS = new LinkedList<>();
+	public static void main(String[] args) {
 
-	void t(final String a) {
 	}
 
-	public static void main(String[] args) {
-		int[] ary = { 1, 1, 3, 2, 2, 3, 6, 0, 6, 7, 7, 19, 19, 5, 5 };
-		qsortArray(ary, 0, ary.length-1);
+	/**
+	 * 斐波那契数，例：1 1 2 3 5 8 13 21
+	 *
+	 * 测试：
+	 * int num = feiBo(5);
+	 * System.out.println("---reuslt-------->"+num);
+	 *
+	 * @param num n
+	 * @return 第N个斐波那契数
+	 */
+	public static int feiBo(int num) {
+		if(num == 1) return 1;
+		if(num == 2) return 2;
 
-		for(int i =0; i<ary.length; i++) {
-			System.out.println(ary[i]);
-		}
-		String defStr = "i love you";
-		String defStr2 = "asdfaascvffeesfgfff";
-		// find1From2(ary);
-		// for(int i = 0; i<10; i++){
-		// if(i == 6){
-		// return;
-		// }
-		//
-		// System.out.println(i);
-		// }
-
-		String s1 = "{\"point\":[{\"longitude\":\"40.055826\",\"latitude\":\"116.307917\"},{\"longitude\":\"40.055916\",\"latitude\":\"116.308455\"},{\"longitude\":\"40.055967\",\"latitude\":\"116.308549\"},{\"longitude\":\"40.056014\",\"latitude\":\"116.308574\"},{\"longitude\":\"40.056440\",\"latitude\":\"116.308485\"},{\"longitude\":\"40.056816\",\"latitude\":\"116.308352\"},{\"longitude\":\"40.057997\",\"latitude\":\"116.307725\"},{\"longitude\":\"40.058022\",\"latitude\":\"116.307693\"},{\"longitude\":\"40.058029\",\"latitude\":\"116.307590\"},{\"longitude\":\"40.057913\",\"latitude\":\"116.307119\"},{\"longitude\":\"40.057850\",\"latitude\":\"116.306945\"},{\"longitude\":\"40.057756\",\"latitude\":\"116.306915\"},{\"longitude\":\"40.057225\",\"latitude\":\"116.307164\"},{\"longitude\":\"40.056134\",\"latitude\":\"116.307546\"},{\"longitude\":\"40.055879\",\"latitude\":\"116.307636\"},{\"longitude\":\"40.055826\",\"latitude\":\"116.307697\"}]}";
-		String s2 = "{\"point\":[{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421},{\"longitude\":116.343794,\"latitude\":39.956421}]}";
-
-		// bublleSort(ary);
-		// selectionSort(ary);
-		// for (int i = 0; i < ary.length; i++) {
-		// System.out.println(ary[i]);
-		// }
-
-		// revertChar(defStr2);
-
-		// revertWord(defValue);
-		// optimizaStr2(defStr2);
-		StringBuilder pars = new StringBuilder();
-		pars.append("key:value,key:value,");
-		String s = pars.toString();
-		System.out.println(s.length());
-		int lastIndex = pars.lastIndexOf(",");
-		System.out.println("lastIndex:" + lastIndex);
-		System.out.println("replaceReuslt:" + pars.toString());
-		System.out.println("-------->|" + (-1 | 0));
-		System.out.println(s);
-
-
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		list.add(127);
-		list.add(2);
-		list.add(3);
-//		list.remove(0);
-		list.remove(Integer.valueOf(127));
-		System.out.println("---reuslt------------------>"+list.get(0));
-
+		return feiBo(num-1) + feiBo(num-2);
 	}
 
 	/**
