@@ -4,9 +4,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Study {
 
-	private Study() {
-	}
-
+	// & 11为1 其他为0；
+	// | 00为0 其他为1；
 	public static void main(String[] args) {
 
 	}
@@ -234,7 +233,7 @@ public class Study {
 	 * 	System.out.println(ary[i]);
 	 * }
 	 *
-	 * 快速排序
+	 * 快速排序 时间复杂度：O(nlogn);
 	 * 更多信息可参考百度百科
 	 */
 	public static int[] quickSortArray(int[] array, int start, int end) {
