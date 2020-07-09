@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.TreeSet;
 import java.util.concurrent.locks.ReentrantLock;
@@ -7,9 +8,26 @@ public class Study {
 	// & 11为1 其他为0；
 	// | 00为0 其他为1；
 	public static void main(String[] args) {
-
+		int [] arr = {5, 6, 7, 8};
+		reverse(arr);
 	}
 
+	/*数组中元素位置进行交换*/
+	static void reverse(int ary[]) {
+		if(ary == null || ary.length < 1) {
+			return;
+		}
+
+		int length = ary.length;
+		for (int i = 0; i < length / 2; i++) {
+			int t = ary[i];
+			ary[i] = ary[length - i - 1];
+			ary[length - i - 1] = t;
+		}
+		for (int k = 0; k < length; k++) {
+			System.out.println(ary[k]);
+		}
+	}
 	/**
 	 * 斐波那契数，例：1 1 2 3 5 8 13 21
 	 *

@@ -12,7 +12,6 @@ public class RevertNodesDemo {
         printNodes(newNode);
     }
 
-
     static class Node {
         public int mValue;
         public Node mNext;
